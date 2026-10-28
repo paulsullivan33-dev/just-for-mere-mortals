@@ -1,0 +1,19 @@
+# Show the menu instead of doing anything by default
+default:
+    @just --list
+
+# A failing line that is allowed to fail
+tolerant:
+    -false
+    echo "The failure above was tolerated."
+
+# Steps that may run side by side
+[parallel]
+gather: chop stir
+    echo "Gathering the results."
+
+chop:
+    echo "Chopping."
+
+stir:
+    echo "Stirring."

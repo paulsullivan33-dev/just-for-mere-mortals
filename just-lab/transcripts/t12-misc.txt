@@ -1,0 +1,21 @@
+$ just   (the default recipe lists the menu)
+Available recipes:
+    chop
+    default  # Show the menu instead of doing anything by default
+    gather   # Steps that may run side by side
+    stir
+    tolerant # A failing line that is allowed to fail
+
+$ just tolerant
+false
+echo "The failure above was tolerated."
+The failure above was tolerated.
+exit code: 0
+
+$ just gather   (dependencies marked [parallel] may overlap)
+echo "Stirring."
+echo "Chopping."
+Stirring.
+Chopping.
+echo "Gathering the results."
+Gathering the results.

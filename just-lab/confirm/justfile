@@ -1,0 +1,4 @@
+# Dangerous, asks first
+[confirm]
+reset:
+    echo "Everything reset."

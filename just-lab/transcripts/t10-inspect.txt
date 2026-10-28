@@ -1,0 +1,19 @@
+$ just paint
+echo "Painting the widget purple."
+Painting the widget purple.
+
+$ just colour=gold paint   (a variable set from the command line wins)
+echo "Painting the widget gold."
+Painting the widget gold.
+
+$ just --dry-run paint
+echo "Painting the widget purple."
+
+$ just --evaluate
+colour := "purple"
+item   := "widget"
+
+$ just --show paint
+# Paint the item
+paint:
+    echo "Painting the {{ item }} {{ colour }}."

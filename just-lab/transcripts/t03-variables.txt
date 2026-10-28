@@ -1,0 +1,9 @@
+$ just show
+echo "widget version 1.2.0, built on 2026-10-28"
+widget version 1.2.0, built on 2026-10-28
+echo "$GREETING"
+Hello from the justfile
+echo "Home folder, read from the environment: /home/reader"
+Home folder, read from the environment: /home/reader
+echo "A variable with a fallback: purple"
+A variable with a fallback: purple

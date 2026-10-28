@@ -1,0 +1,17 @@
+# A recipe written as one small script: the lines share state
+countdown:
+    #!/usr/bin/env bash
+    for i in 3 2 1; do
+      echo "Counting: $i"
+    done
+    echo "The loop ran inside one shell, start to finish."
+
+# The same lines as an ordinary recipe share nothing
+separate:
+    x=5
+    echo "Can the next line see x? It reads: [$x]"
+
+# A quiet line: the @ keeps just from echoing it first
+whisper:
+    @echo "This line ran silently."
+    echo "This line was announced first."

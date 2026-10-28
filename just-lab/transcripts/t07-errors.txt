@@ -1,0 +1,10 @@
+$ just nosuchrecipe
+error: justfile does not contain recipe `nosuchrecipe`
+exit code: 1
+
+$ just steps
+echo "Step one, fine."
+Step one, fine.
+false
+error: recipe `steps` failed on line 4 with exit code 1
+exit code: 1

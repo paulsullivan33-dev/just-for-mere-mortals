@@ -1,0 +1,24 @@
+$ just where
+pwd
+/home/reader/lab/subdirs
+echo "The justfile lives in: /home/reader/lab/subdirs"
+The justfile lives in: /home/reader/lab/subdirs
+echo "You invoked just from: /home/reader/lab/subdirs"
+You invoked just from: /home/reader/lab/subdirs
+
+$ cd deep/deeper
+$ just where    (from two folders down)
+pwd
+/home/reader/lab/subdirs
+echo "The justfile lives in: /home/reader/lab/subdirs"
+The justfile lives in: /home/reader/lab/subdirs
+echo "You invoked just from: /home/reader/lab/subdirs/deep/deeper"
+You invoked just from: /home/reader/lab/subdirs/deep/deeper
+
+$ just --justfile ../../justfile --working-directory . where
+pwd
+/home/reader/lab/subdirs/deep/deeper
+echo "The justfile lives in: /home/reader/lab/subdirs"
+The justfile lives in: /home/reader/lab/subdirs
+echo "You invoked just from: /home/reader/lab/subdirs/deep/deeper"
+You invoked just from: /home/reader/lab/subdirs/deep/deeper

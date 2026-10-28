@@ -1,0 +1,51 @@
+Lab notes — just for Mere Mortals
+====================================================================
+
+Machine: a small Ubuntu sandbox. Program under test: just
+1.59.0, the official release archive for
+x86_64-unknown-linux-musl, downloaded from the project's
+GitHub releases page into a scratch folder and run from
+there. Nothing installed system-wide.
+
+Layout: just-lab/ holds one folder per experiment (first,
+params, variables, deps, subdirs, listing, errors, shebang,
+settings, inspect, extras, misc, broken, confirm, cookbook),
+each with the justfile the chapter used. just-lab/transcripts/
+holds what the terminal actually said, numbered in the order
+the guide meets them. Absolute paths in transcripts were
+normalised to /home/reader/...; all else is verbatim.
+
+Things the lab learned by doing, in no special order:
+
+- just announces every line before running it, on standard
+  error. Transcripts were captured with 2>&1 so the reader
+  sees the conversation whole, as the chapters quote it.
+- A bare `just` runs the first recipe in the file. Position
+  is the whole rule; "default" is a convention, not a name
+  just looks for.
+- Extra words after a recipe's arguments are read as more
+  recipe names. `just greet Ada Lovelace` is not one call
+  with a long name; it is a call and a missing recipe.
+- Each recipe runs at most once per invocation, dependencies
+  included. `just check` on the cookbook ran its build once
+  though two recipes asked for it.
+- Recipes run with the working directory set to the
+  justfile's folder, no matter where just was invoked from.
+  invocation_directory() is the way back.
+- The attribute order rule (comment, then attribute, then
+  recipe) was found by breaking it: any other order is an
+  "extraneous attribute" error and no recipe runs.
+- just runs each line with `sh -cu` by default, so an unset
+  shell variable is an error, not an empty string. The
+  "parameter not set" failure in t08 is that, arriving early.
+- [parallel] really does overlap: the two dependencies'
+  announcements and outputs interleaved in t12, in the
+  opposite order to their listing.
+- One syntax error anywhere refuses the whole file before
+  anything runs. The indentation error in t13 blocked every
+  recipe in its file, including the correctly written ones.
+
+Documented only (never run here): package-manager installs,
+Windows and macOS behaviour, flag-style parameters,
+positional-arguments, imports, underscore-private recipes,
+and the --choose picker. criteria.md keeps the ledger.

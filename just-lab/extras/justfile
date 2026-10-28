@@ -1,0 +1,14 @@
+# Bring in the kitchen recipes as a module
+mod kitchen
+
+greeting := "Hello" + " " + "there"
+size := if greeting == "Hello there" { "familiar" } else { "strange" }
+
+# Stay where the user is, instead of moving to the justfile folder
+[no-cd]
+here:
+    pwd
+
+# Show string work
+strings:
+    echo "{{greeting}} — that is a {{size}} greeting."

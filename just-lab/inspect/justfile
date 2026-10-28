@@ -1,0 +1,6 @@
+colour := "purple"
+item := "widget"
+
+# Paint the item
+paint:
+    echo "Painting the {{item}} {{colour}}."

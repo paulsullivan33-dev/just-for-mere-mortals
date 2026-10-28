@@ -1,0 +1,21 @@
+$ just all
+echo "Preparing ingredients."
+Preparing ingredients.
+echo "Building on the prepared groundwork."
+Building on the prepared groundwork.
+echo "Middle step."
+Middle step.
+echo "Reporting: all done."
+Reporting: all done.
+
+$ just deploy testing
+echo "Shipping to testing."
+Shipping to testing.
+echo "Deploying to testing."
+Deploying to testing.
+
+$ just build build   (the same recipe twice)
+echo "Preparing ingredients."
+Preparing ingredients.
+echo "Building on the prepared groundwork."
+Building on the prepared groundwork.

@@ -1,0 +1,26 @@
+# Typing 'just b' does the same as 'just build'
+alias b := build
+
+# Build the project
+[group('making')]
+build:
+    echo "Building."
+
+# Test the project
+[group('making')]
+test:
+    echo "Testing."
+
+# Tidy up
+[group('housekeeping')]
+clean:
+    echo "Cleaning."
+
+# Not shown in listings
+[private]
+secret-ingredients:
+    echo "A pinch of patience."
+
+# A recipe with no comment of its own
+plain:
+    echo "No frills."

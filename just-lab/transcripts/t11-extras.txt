@@ -1,0 +1,17 @@
+$ just --list
+Available recipes:
+    here        # Stay where the user is, instead of moving to the justfile folder
+    strings     # Show string work
+    kitchen ... # Bring in the kitchen recipes as a module
+
+$ just kitchen bake
+echo "Baking in the kitchen module."
+Baking in the kitchen module.
+
+$ just strings
+echo "Hello there — that is a familiar greeting."
+Hello there — that is a familiar greeting.
+
+$ cd /; just --justfile /home/reader/lab/extras/justfile here   ([no-cd] keeps the working folder)
+pwd
+/

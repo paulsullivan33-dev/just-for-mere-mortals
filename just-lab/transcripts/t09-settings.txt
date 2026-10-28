@@ -1,0 +1,11 @@
+$ cat .env
+SNACK=crumpets
+DRINK=cocoa
+
+$ just menu
+echo "From the .env file: $SNACK and $DRINK"
+From the .env file: crumpets and cocoa
+
+$ just which-shell
+echo "This line ran under: $0"
+This line ran under: bash

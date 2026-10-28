@@ -1,0 +1,8 @@
+$ just reset   (and the answer is y)
+Run recipe `reset`? echo "Everything reset."
+Everything reset.
+exit code: 0
+
+$ just reset   (and the answer is n)
+Run recipe `reset`? error: recipe `reset` was not confirmed
+exit code: 1

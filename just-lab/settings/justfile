@@ -1,0 +1,13 @@
+# Load a neighbouring .env file into the environment
+set dotenv-load
+
+# Run recipe lines with bash instead of sh
+set shell := ["bash", "-cu"]
+
+# Show what the .env file provided
+menu:
+    echo "From the .env file: $SNACK and $DRINK"
+
+# Show which shell ran the line
+which-shell:
+    echo "This line ran under: $0"

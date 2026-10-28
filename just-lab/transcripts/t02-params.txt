@@ -1,0 +1,31 @@
+$ just greet
+echo "Hello, world!"
+Hello, world!
+
+$ just greet Ada
+echo "Hello, Ada!"
+Hello, Ada!
+
+$ just snack toast
+echo "Serving toast with tea."
+Serving toast with tea.
+
+$ just snack toast coffee
+echo "Serving toast with coffee."
+Serving toast with coffee.
+
+$ just total apple banana cherry
+echo "First item: apple; the rest: banana cherry"
+First item: apple; the rest: banana cherry
+
+$ just greet Ada Lovelace   (too many arguments)
+error: justfile does not contain recipe `Lovelace`
+exit code: 1
+$ just snack   (missing a required argument)
+error: recipe `snack` got 0 positional arguments but takes at least 1
+usage:
+    just snack food [drink]
+exit code: 1
+
+$ just greet Ada test   (the second word is read as another recipe name)
+error: justfile does not contain recipe `test`

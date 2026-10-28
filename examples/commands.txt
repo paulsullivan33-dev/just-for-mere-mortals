@@ -1,0 +1,89 @@
+just — the distilled commands
+====================================================================
+Placeholders: <name> is a recipe name; <arg> is an argument.
+
+FIRST CONTACT (chapters 3-4)
+--------------------------------------------------------------------
+  just --version                   # the check every install
+                                   # ends with
+  mkdir lab && cd lab              # a justfile, in a folder:
+  printf '# Build it\nbuild:\n    echo "Built."\n' > justfile
+  just                             # runs the FIRST recipe
+  just build                       # runs a recipe by name
+  just --list                      # the menu, with the
+                                   # comments as descriptions
+
+ARGUMENTS (chapter 5)
+--------------------------------------------------------------------
+  greet name:                      # a required parameter
+  greet name="world":              # a default fills silence
+  total first *rest:               # *rest takes any number
+                                   # (use + for at least one)
+  just snack                     # missing argument: an error
+                                   # that prints the usage
+  just greet "Ada Lovelace"       # quote values with spaces,
+                                   # or the extra word is read
+                                   # as another recipe's name
+
+VARIABLES (chapter 6)
+--------------------------------------------------------------------
+  version := "1.2.0"               # set once, used everywhere
+  today := `date +%F`              # a value from a command
+  export GREETING := "Hello"       # also in the shells' env
+  env_var('HOME')                  # read the caller's env;
+                                   # env_var_or_default('X',
+                                   # 'fallback') forgives absence
+  just colour=gold paint           # the command line wins
+  just --evaluate                  # show values as resolved
+
+DEPENDENCIES (chapter 7)
+--------------------------------------------------------------------
+  build: prepare                   # prepare runs first
+  all: build && report             # report runs afterwards
+  deploy env: (ship env)           # a dependency with an
+                                   # argument, in parentheses
+                                   # every recipe runs at most
+                                   # once per invocation
+
+RUNNING FROM ANYWHERE (chapter 8)
+--------------------------------------------------------------------
+  # from any folder under the project:
+  just build                       # just walks up to the file
+  pwd                              # ...but recipes RUN in the
+                                   # justfile's folder
+  {{invocation_directory()}}       # the folder you stood in
+  {{justfile_directory()}}         # the folder the file is in
+  just --justfile F --working-directory D build
+                                   # override both choices
+  [no-cd]                          # ...for one recipe only
+
+LISTING AND ORGANISING (chapter 9)
+--------------------------------------------------------------------
+  just --list                      # public recipes, grouped
+  just --list --group making       # one group only
+  alias b := build                 # a second, shorter name
+  [group('making')]                # comment ABOVE, attribute
+                                   # below it, recipe last
+  [private]                        # unlisted, not unusable
+  just --summary                   # every name, one line
+  just --show build                # one recipe, as parsed
+  just --fmt                       # tidy the file itself
+  just --fmt --check               # ...or just report drift
+
+SCRIPTS AND SETTINGS (chapter 10)
+--------------------------------------------------------------------
+  countdown:                       # a body starting with #!
+      #!/usr/bin/env bash          # runs as ONE script; lines
+      ...                          # in other recipes are each
+                                   # a shell of their own
+  @echo "quiet"                    # @ stops the announcement
+  -rm scratch.tmp                  # - lets a line fail softly
+  set shell := ["bash", "-cu"]     # choose the line shell
+  set dotenv-load                  # read a neighbour .env
+  [confirm]                        # ask first, then run
+
+INSPECTING (chapters 6, 9)
+--------------------------------------------------------------------
+  just --dry-run build             # print lines, run nothing
+  just --dump                      # the file, as just parsed it
+  just --evaluate                  # variables, resolved

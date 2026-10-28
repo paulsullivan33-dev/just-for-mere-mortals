@@ -1,0 +1,11 @@
+# Greet someone by name
+greet name="world":
+    echo "Hello, {{name}}!"
+
+# Serve a snack, with a choice of drink
+snack food drink="tea":
+    echo "Serving {{food}} with {{drink}}."
+
+# Add up any number of items
+total first *rest:
+    echo "First item: {{first}}; the rest: {{rest}}"

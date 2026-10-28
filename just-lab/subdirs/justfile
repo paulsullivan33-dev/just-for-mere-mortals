@@ -1,0 +1,5 @@
+# Where am I running?
+where:
+    pwd
+    echo "The justfile lives in: {{justfile_directory()}}"
+    echo "You invoked just from: {{invocation_directory()}}"

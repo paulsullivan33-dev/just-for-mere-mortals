@@ -1,0 +1,7 @@
+$ just broken
+error: expected '*', ':', '$', identifier, or '+', but found string
+ ——▶ justfile:3:6
+  │
+3 │ echo "This line forgot its indentation."
+  │      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+exit code: 1

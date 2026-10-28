@@ -1,0 +1,14 @@
+# Variables are set once, at the top
+project := "widget"
+version := "1.2.0"
+today := `date +%F`
+
+# An exported variable becomes an environment variable for recipes
+export GREETING := "Hello from the justfile"
+
+# Show the values in play
+show:
+    echo "{{project}} version {{version}}, built on {{today}}"
+    echo "$GREETING"
+    echo "Home folder, read from the environment: {{env_var('HOME')}}"
+    echo "A variable with a fallback: {{env_var_or_default('WIDGET_COLOUR', 'purple')}}"

@@ -1,0 +1,5 @@
+$ just --version
+just 1.59.0
+
+$ just --completions bash | head -2
+eval "$(JUST_COMPLETE=bash just)"

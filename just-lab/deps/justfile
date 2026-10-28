@@ -1,0 +1,19 @@
+# The full works: prepare, then build, then report done
+all: build && report
+    echo "Middle step."
+
+prepare:
+    echo "Preparing ingredients."
+
+build: prepare
+    echo "Building on the prepared groundwork."
+
+report:
+    echo "Reporting: all done."
+
+# Deploy needs a target; the dependency receives it too
+deploy env: (ship env)
+    echo "Deploying to {{env}}."
+
+ship env:
+    echo "Shipping to {{env}}."

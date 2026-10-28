@@ -1,0 +1,8 @@
+# Build the project (a pretend one)
+build:
+    echo "Compiling the widget..."
+    echo "Widget compiled."
+
+# Run the checks
+test:
+    echo "All checks passed."

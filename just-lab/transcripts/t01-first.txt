@@ -1,0 +1,17 @@
+$ just --version
+just 1.59.0
+
+$ just
+echo "Compiling the widget..."
+Compiling the widget...
+echo "Widget compiled."
+Widget compiled.
+
+$ just test
+echo "All checks passed."
+All checks passed.
+
+$ just --list
+Available recipes:
+    build # Build the project (a pretend one)
+    test  # Run the checks

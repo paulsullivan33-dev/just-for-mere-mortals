@@ -1,0 +1,9 @@
+# Three steps, of which the second one fails
+steps:
+    echo "Step one, fine."
+    false
+    echo "Step three, never reached."
+
+# A recipe that ends well
+fine:
+    echo "Nothing to see here."

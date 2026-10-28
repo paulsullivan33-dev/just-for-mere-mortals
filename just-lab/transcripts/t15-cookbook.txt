@@ -1,0 +1,24 @@
+$ just check
+mkdir -p build
+echo "fresh widget" > build/widget.txt
+echo "Built."
+Built.
+test -f build/widget.txt && echo "The widget is present."
+The widget is present.
+
+$ just backup
+mkdir -p backups
+tar czf backups/notes-2026-10-28.tar.gz notes
+ls backups
+notes-2026-10-28.tar.gz
+
+$ just tidy
+rm scratch.tmp
+rm: cannot remove 'scratch.tmp': No such file or directory
+echo "Tidied."
+Tidied.
+
+$ just clean   (answered y)
+Run recipe `clean`? rm -rf build
+echo "Cleaned."
+Cleaned.

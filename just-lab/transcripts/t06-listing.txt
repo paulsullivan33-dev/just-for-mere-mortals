@@ -1,0 +1,26 @@
+$ just --list
+Available recipes:
+    plain # A recipe with no comment of its own
+
+    [housekeeping]
+    clean # Tidy up
+
+    [making]
+    build # Build the project [alias: b]
+    test  # Test the project
+
+$ just --list --group housekeeping
+Available recipes:
+    [housekeeping]
+    clean # Tidy up
+
+$ just b   (the alias works)
+echo "Building."
+Building.
+
+$ just secret-ingredients   (private means unlisted, not unusable)
+echo "A pinch of patience."
+A pinch of patience.
+
+$ just --summary
+build clean plain test

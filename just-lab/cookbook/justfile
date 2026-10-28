@@ -1,0 +1,33 @@
+# Show this menu
+default:
+    @just --list
+
+# Build the widget
+build:
+    mkdir -p build
+    echo "fresh widget" > build/widget.txt
+    echo "Built."
+
+# Test the widget
+test: build
+    test -f build/widget.txt && echo "The widget is present."
+
+# Build, then test
+check: build test
+
+# Remove what the build made (asks first)
+[confirm]
+clean:
+    rm -rf build
+    echo "Cleaned."
+
+# Pack the notes folder into a dated backup
+backup label="notes":
+    mkdir -p backups
+    tar czf backups/{{label}}-{{`date +%F`}}.tar.gz notes
+    ls backups
+
+# Tidy the scratch file, whether or not it exists
+tidy:
+    -rm scratch.tmp
+    echo "Tidied."

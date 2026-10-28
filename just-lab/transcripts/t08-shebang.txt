@@ -1,0 +1,16 @@
+$ just countdown
+Counting: 3
+Counting: 2
+Counting: 1
+The loop ran inside one shell, start to finish.
+
+$ just separate
+x=5
+echo "Can the next line see x? It reads: [$x]"
+sh: 1: x: parameter not set
+error: recipe `separate` failed on line 12 with exit code 2
+
+$ just whisper
+This line ran silently.
+echo "This line was announced first."
+This line was announced first.
